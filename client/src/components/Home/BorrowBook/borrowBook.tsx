@@ -3,10 +3,12 @@ import { useForm } from "react-hook-form";
 import { useGetBookQuery } from "../../../features/Books/BookApi";
 import { useBorrowBookMutation } from "../../../features/Borrow/borrowApi";
 import type { IBorrow } from "../../../Type/type";
+import { useNavigate } from "react-router";
 
 export default function BorrowSingleBookForm() {
   const { bookId } = useParams();
-  const { data: book, isLoading } = useGetBookQuery(bookId || "");
+  const navigate = useNavigate()
+  const { data: book, isLoading,refetch } = useGetBookQuery(bookId || "");
 
 
   // step 1
@@ -27,11 +29,13 @@ export default function BorrowSingleBookForm() {
       ...data,
       book: book._id
     }
-console.log(borrowData)
+
     try {
       await borrowBook(borrowData).unwrap();
       reset();
+      refetch();
       alert("✅ Book borrowed successfully!");
+      navigate("/borrowSummary")
     } catch (error) {
       console.error("Borrow error:", error);
       alert("❌ Failed to borrow book.");

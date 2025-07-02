@@ -6,7 +6,7 @@ interface Props {
   onDelete: (id: string) => void;
 }
 
-export default function BookCard({ book, onDelete }: Props) {
+export default function BookCard({ book, onDelete, }: Props) {
   return (
     <div className="bg-white rounded-2xl mx-4 shadow-md p-6 mb-4 border border-gray-200 hover:shadow-lg transition duration-300">
       <h2 className="text-xl font-semibold text-gray-800 mb-2">{book.title}</h2>
@@ -17,21 +17,34 @@ export default function BookCard({ book, onDelete }: Props) {
       <p className="text-sm text-gray-600"><span className="font-semibold">Copies:</span> {book.copies}</p>
       <p className="text-sm text-gray-600"><span className="font-semibold">Available:</span> {book.available ? "Yes ✅" : "No ❌"}</p>
 
-      <div className="flex justify-between">
-        <button
-          onClick={() => onDelete(book._id)}
-          className="mt-4 bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-4 rounded-lg transition"
-        >
-          Delete
-        </button>
-       <Link to={`/borrow/${book._id}`}>
-        <button
-          className="mt-4 bg-emerald-400 hover:bg-emerald-700 text-white font-medium py-2 px-4 rounded-lg transition"
-        >
-          Borrow
-        </button>
-       </Link>
+      <div className="flex justify-between items-center flex-wrap gap-3 mt-4">
+        {/* Left Buttons: Edit & Delete */}
+        <div className="flex gap-3">
+          <Link to={`/books/${book._id}`}>
+            <button className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition duration-200">
+              Edit
+            </button>
+          </Link>
+
+          <button
+            onClick={() => onDelete(book._id)}
+            className="bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-4 rounded-lg transition duration-200"
+          >
+            Delete
+          </button>
+        </div>
+
+        {/* Right Button: Borrow */}
+        <Link to={`/borrow/${book._id}`}>
+          <button
+            className="bg-emerald-500 hover:bg-emerald-600 text-white font-medium py-2 px-4 rounded-lg transition duration-200"
+          >
+            Borrow
+          </button>
+        </Link>
       </div>
+
+
     </div>
   );
 }

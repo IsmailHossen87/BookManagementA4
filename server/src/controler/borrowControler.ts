@@ -61,14 +61,12 @@ borrowRoute.get("/summary", async (req: Request, res: Response) => {
           title: "$bookInfo.title",
           isbn: "$bookInfo.isbn",
           totalQuantity: 1,
+          dueDate: 1
         },
       },
     ]);
 
-    res.status(200).json({
-      message: "📊 Borrow summary fetched",
-      data: summary,
-    });
+    res.send(summary)
   } catch (error) {
     res.status(500).json({
       message: "❌ Failed to get summary",
