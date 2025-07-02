@@ -34,11 +34,7 @@ booksRoute.get("/:id", async (req: Request, res: Response) => {
       message: "Book not found",
     });
   }
-  res.json({
-      success: true,
-      message: "Books retrieved successfully",
-      data: book,
-    });
+  res.send(book)
 })
 // Book Delete
 booksRoute.delete("/:bookId", async (req: Request, res: Response) => {

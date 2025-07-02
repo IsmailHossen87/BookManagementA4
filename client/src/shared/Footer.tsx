@@ -25,27 +25,27 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="/all-foods" className="hover:underline">
-                  All Foods
+                <a href="/allBooks" className="hover:underline">
+                  All Books
                 </a>
               </li>
               <li>
-                <a href="/gallery" className="hover:underline">
-                  Gallery
+                <a href="/addBook" className="hover:underline">
+                  Add Book
                 </a>
               </li>
             </ul>
           </div>
 
           {/* Newsletter Section */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Subscribe to our Newsletter</h3>
+          <div className="p-4 max-w-md mx-auto">
+            <h3 className="text-lg font-semibold mb-4 text-white">Subscribe to our Newsletter</h3>
             <form>
-              <div className="flex items-center">
+              <div className="flex">
                 <input
                   type="email"
                   placeholder="Your email"
-                  className="w-full px-4 py-2 rounded-l-md text-gray-800 focus:outline-none"
+                  className="flex-1 px-4 py-2 rounded-l-md text-gray-800 bg-white border border-gray-300 focus:outline-none"
                 />
                 <button
                   type="submit"
@@ -56,6 +56,7 @@ const Footer = () => {
               </div>
             </form>
           </div>
+
         </div>
 
         {/* Divider */}
@@ -100,7 +101,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white"
             >
-             <FaLinkedin></FaLinkedin>
+              <FaLinkedin></FaLinkedin>
             </a>
           </div>
         </div>

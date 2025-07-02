@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import type { IBook } from "../Type/type";
 
 interface Props {
@@ -16,12 +17,21 @@ export default function BookCard({ book, onDelete }: Props) {
       <p className="text-sm text-gray-600"><span className="font-semibold">Copies:</span> {book.copies}</p>
       <p className="text-sm text-gray-600"><span className="font-semibold">Available:</span> {book.available ? "Yes ✅" : "No ❌"}</p>
 
-      <button
-        onClick={() => onDelete(book._id)}
-        className="mt-4 bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-4 rounded-lg transition"
-      >
-        Delete
-      </button>
+      <div className="flex justify-between">
+        <button
+          onClick={() => onDelete(book._id)}
+          className="mt-4 bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-4 rounded-lg transition"
+        >
+          Delete
+        </button>
+       <Link to={`/borrow/${book._id}`}>
+        <button
+          className="mt-4 bg-emerald-400 hover:bg-emerald-700 text-white font-medium py-2 px-4 rounded-lg transition"
+        >
+          Borrow
+        </button>
+       </Link>
+      </div>
     </div>
   );
 }

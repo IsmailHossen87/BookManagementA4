@@ -4,7 +4,7 @@ export default function Navbar() {
     const navlist = <>
     <li><NavLink to={"/"}>Home</NavLink></li>
     <li><NavLink to={"/allBooks"}>All Books</NavLink></li>
-    <li><NavLink to={"/addBooks"}>Add Books</NavLink></li>
+    <li><NavLink to={"/addBook"}>Add Books</NavLink></li>
     <li><NavLink to={"/borrowSummary"}>Borrow Summary</NavLink></li>
     </>
   return (
