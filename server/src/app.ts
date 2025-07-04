@@ -7,7 +7,7 @@ import { routeOfBorrow } from "./controler/controlerOfBorrow";
 const app: Application = express();
 
 app.use(cors({
-  origin: ["http://localhost:5173", "https://books-management-library.vercel.app"],
+  origin: ["http://localhost:5173","http://localhost:5174", "https://books-management-library.vercel.app"],
   credentials: false,
 }));
 

@@ -130,7 +130,7 @@ export default function EditBookForm() {
             <button
               type="submit"
               disabled={isUpdating}
-              className="w-6/12 flex justify-center bg-blue-600 text-white font-semibold py-2 rounded-lg hover:bg-blue-700 transition"
+              className="w-6/12 flex justify-center bg-[#6af34b] text-white font-semibold py-2 rounded-lg hover:bg-[#3eb3f1] transition"
             >
               {isUpdating ? "Updating..." : "Update Book"}
             </button>

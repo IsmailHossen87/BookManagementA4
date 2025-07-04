@@ -4,6 +4,7 @@ import { type IBorrow, type IBorrowSummary } from "../../Type/type";
 export const borrowApi = createApi({
   reducerPath: "borrowPath",
   tagTypes: ['Borrows', "Books"],
+  // baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000/api" }),
   baseQuery: fetchBaseQuery({ baseUrl: "https://book-managemet-server.vercel.app/api" }),
   endpoints: (build) => ({
     // create a Borrow

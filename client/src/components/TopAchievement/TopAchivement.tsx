@@ -66,7 +66,7 @@ const TopFeatures = () => {
               <div className="text-center mt-10">
                 <button
                   onClick={() => setShowAll(!showAll)}
-                  className="px-5 py-2 border border-gray-800 text-gray-800 hover:bg-gray-100 transition rounded-xl text-lg font-medium"
+                  className="px-5 py-2   bg-[#6af34b] hover:bg-[#3eb3f1] text-white transition rounded-xl text-lg font-medium"
                 >
                   {showAll ? "See Less" : "See More"}
                 </button>

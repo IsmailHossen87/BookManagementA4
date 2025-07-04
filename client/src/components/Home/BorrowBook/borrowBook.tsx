@@ -8,7 +8,7 @@ import { useNavigate } from "react-router";
 export default function BorrowSingleBookForm() {
   const { bookId } = useParams();
   const navigate = useNavigate()
-  const { data: book, isLoading,refetch } = useGetBookQuery(bookId || "");
+  const { data: book, isLoading, refetch } = useGetBookQuery(bookId || "");
 
 
   // step 1
@@ -25,7 +25,7 @@ export default function BorrowSingleBookForm() {
   // step 3
   const onSubmit = async (data: IBorrow) => {
     if (!bookId || !book) return;
-    const borrowData ={
+    const borrowData = {
       ...data,
       book: book._id
     }
@@ -88,11 +88,19 @@ export default function BorrowSingleBookForm() {
         {/* Submit */}
         <button
           type="submit"
-          disabled={borrowing}
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-md transition"
-        >
-          {borrowing ? "Borrowing..." : "Confirm Borrow"}
+          disabled={borrowing || book.copies === 0}
+          className={`w-full py-2 rounded-md transition text-white ${book.copies === 0
+              ? "bg-gray-400 cursor-not-allowed"
+              : "bg-blue-600 hover:bg-blue-700"}`}>
+          {/* show name */}
+          {book.copies === 0
+            ? "Unvailable"
+            : borrowing
+              ? "Borrowing..."
+              : "Confirm Borrow"}
+
         </button>
+
       </form>
     </div>
   );

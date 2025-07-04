@@ -123,7 +123,7 @@ export default function AddBooks() {
           <div className="flex items-center justify-center">
             <button
               type="submit"
-              className="w-6/12 flex justify-center bg-[rgb(229,101,3)] text-white font-semibold py-2 rounded-lg hover:bg-blue-700 transition"
+              className="w-6/12 flex justify-center bg-[#6af34b] text-white font-semibold py-2 rounded-lg hover:bg-[#3eb3f1] transition"
             >
               Add Book
             </button>
