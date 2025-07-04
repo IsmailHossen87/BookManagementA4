@@ -9,7 +9,7 @@ export default function mainLayout() {
         <Navbar />
       </header>
 
-      <main className="flex-1 container mx-auto">
+      <main className="flex-1 mt-14 ">
         <Outlet />
       </main>
 

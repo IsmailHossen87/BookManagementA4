@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "icon": "📚",
+    "title": "Smart Book Tracking",
+    "description": "Track every book borrowed or returned with real-time status updates."
+  },
+  {
+    "id": 2,
+    "icon": "📈",
+    "title": "Borrow Summary Reports",
+    "description": "View complete summaries of borrowing history and overdue items."
+  },
+  {
+    "id": 3,
+    "icon": "🛡️",
+    "title": "Admin Controls",
+    "description": "Manage book inventory, student access, and activity logs securely."
+  },
+  {
+    "id": 4,
+    "icon": "🔍",
+    "title": "Instant Search",
+    "description": "Quickly find any book by title, author, or ISBN using dynamic filters."
+  },
+  {
+    "id": 5,
+    "icon": "🔄",
+    "title": "Seamless Returns",
+    "description": "Allow users to return books effortlessly with automated status updates."
+  },
+  {
+    "id": 6,
+    "icon": "📅",
+    "title": "Due Date Reminders",
+    "description": "Notify users before due dates to reduce late returns and improve engagement."
+  }
+]

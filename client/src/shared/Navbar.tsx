@@ -1,36 +1,80 @@
-import { NavLink } from 'react-router'
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 export default function Navbar() {
-  const navlist = <>
-    <li><NavLink to={"/"}>Home</NavLink></li>
-    <li><NavLink to={"/allBooks"}>All Books</NavLink></li>
-    <li><NavLink to={"/addBook"}>Add Books</NavLink></li>
-    <li><NavLink to={"/borrowSummary"}>Borrow Summary</NavLink></li>
-  </>
-  return (
-    <div className="navbar  shadow-sm bg-blur">
-      <div className="navbar-start">
-        <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
-          </div>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-            {navlist}
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-          </ul>
-        </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+  const navItems = [
+    { name: "Home", link: "/" },
+    { name: "All Books", link: "/allBooks" },
+    { name: "Add Book", link: "/addBook" },
+    { name: "Borrow Summary", link: "/borrowSummary" },
+  ];
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  return (
+    <header className="w-full bg-[#479df3] text-white shadow-md fixed top-0 z-70">
+      {/* Top Bar */}
+      <div className="flex justify-between items-center px-6 py-4">
+        {/* Logo */}
+        <h1 className="text-2xl md:text-3xl font-extrabold tracking-wider font-serif drop-shadow-sm">
+          <span className="mr-1">📚</span> Book Management
+        </h1>
+
+        {/* Desktop Menu */}
+        <nav className="hidden md:flex items-center gap-6 text-lg">
+          {navItems.map((item, index) => (
+            <NavLink
+              key={index}
+              to={item.link}
+              className={({ isActive }) =>
+                isActive
+                  ? "text-white bg-[#6af34b] px-5 py-2 rounded-xl font-semibold"
+                  : "hover:text-white transition-colors"
+              }
+            >
+              {item.name}
+            </NavLink>
+          ))}
+        </nav>
+
+        {/* Mobile Toggle Button */}
+        <button onClick={toggleMobileMenu} className="md:hidden">
+          {isMobileMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+        </button>
       </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-          {navlist}
-        </ul>
-      </div>
-      <div className="navbar-end">
-        <button>Toggle</button>
-      </div>
-    </div>
-  )
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.nav
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="md:hidden bg-[#c435e0] px-6 py-4 space-y-3"
+          >
+            {navItems.map((item, index) => (
+              <NavLink
+                key={index}
+                to={item.link}
+                className={({ isActive }) =>
+                  isActive
+                    ? "block text-white bg-[#89db76] px-4 py-2 rounded-lg font-semibold"
+                    : "block hover:text-yellow-200 transition-colors"
+                }
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {item.name}
+              </NavLink>
+            ))}
+          </motion.nav>
+        )}
+      </AnimatePresence>
+    </header>
+  );
 }

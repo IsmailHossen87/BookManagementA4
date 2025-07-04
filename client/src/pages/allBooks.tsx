@@ -35,18 +35,29 @@ export default function AllBooks() {
   if (isError) return <p>Something went wrong!</p>;
 
   return (
-    <>
-     <div className="text-end mr-4">
-       <Link to={"/addBook"}>
-        <button  className="mt-4 bg-green-600  hover:bg-green-400 text-white font-medium py-2 px-4 rounded-lg transition">Add Books</button>
+   <div>
+      <div className="text-center mb-12 mt-6">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+          All Available Books
+        </h2>
+        <p className="text-gray-500 mt-2">
+          Browse through our complete collection and find your next read
+        </p>
+      </div>
+      <div className="text-end mr-4 md:mb-6">
+        <Link to="/addBook">
+          <button className="bg-green-600 hover:bg-green-400 text-white font-medium py-2 px-6 rounded-lg transition">
+            Add Books
+          </button>
         </Link>
-         </div>
-      <div className="grid md:grid-cols-2 gap-3 my-10">
+      </div>
+
+      <div className="grid container mx-auto md:grid-cols-2 py-4 px-4 gap-3 ">
         {books?.length === 0 && <p>No books found.</p>}
         {books?.map((book) => (
           <BookCard key={book._id} book={book} onDelete={handleDelete} />
         ))}
       </div>
-    </>
+   </div>
   );
 }

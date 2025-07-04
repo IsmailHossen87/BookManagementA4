@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "dayjs": "^1.11.13",
-    "react-responsive-carousel": "^3.2.23",
-    "swiper": "^11.2.10"
-  }
-}

@@ -15,7 +15,7 @@ export default function BorrowSummary() {
     return <p className="text-center text-red-500 mt-10">Something went wrong!</p>;
 
   return (
-    <div className="p-4 md:p-8 max-w-6xl mx-auto">
+    <div className="p-4 md:p-8 w-10/12 mx-auto">
       <h2 className="text-3xl font-semibold mb-6 text-center text-blue-700">
         📚 Borrow Summary
       </h2>
@@ -52,7 +52,6 @@ export default function BorrowSummary() {
 
             {data?.map((item,index) => (
               <tr
-                key={item._id}
                 className="hover:bg-gray-50  transition duration-200"
               >
                 <td className="px-4 text-center py-3 text-sm text-gray-800">
@@ -64,7 +63,7 @@ export default function BorrowSummary() {
                 <td className="px-4 text-center py-3 text-sm text-gray-600">
                   {item.isbn}
                 </td>
-                <td className="px-4 text-center py-3 text-sm font-medium text-gray-900">
+                <td className="px-4 text-center py-3 text-sm  text-gray-900">
                   {item.totalQuantity}
                 </td>
                 <td>{dayjs(item.dueDate).format("YYYY-MM-DD hh:mm A")}</td>

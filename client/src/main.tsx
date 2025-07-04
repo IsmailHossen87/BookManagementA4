@@ -8,8 +8,8 @@ import { store } from './app/store.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-   <Provider store={store}>
-     <RouterProvider router={routers}>
+   <Provider  store={store}>
+     <RouterProvider  router={routers}>
     </RouterProvider>
    </Provider>
   </StrictMode>,

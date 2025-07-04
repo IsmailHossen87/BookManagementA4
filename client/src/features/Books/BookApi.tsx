@@ -3,8 +3,8 @@ import type { IBook } from "../../Type/type";
 
 export const bookApi = createApi({
   reducerPath: "booksApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000/api" }),
-  tagTypes: ["Books","Book"],
+  baseQuery: fetchBaseQuery({ baseUrl: "https://book-managemet-server.vercel.app/api" }),
+  tagTypes: ["Books", "Book"],
   endpoints: (builder) => ({
     // collect all books
     getBooks: builder.query<IBook[], void>({
@@ -14,7 +14,7 @@ export const bookApi = createApi({
     // get single book
     getBook: builder.query<IBook, string>({
       query: (id) => `/books/${id}`,
-        providesTags: (result, error, id) => [{ type: "Book", id }]
+      providesTags: ["Books"]
     }),
     // create single book
     createBook: builder.mutation<void, Partial<IBook>>({

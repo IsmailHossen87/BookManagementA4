@@ -31,13 +31,13 @@ export default function AddBooks() {
     }
   };
 
-  if (isLoading) return <div className="text-center mt-10 text-lg">Loading...</div>;
+  if (isLoading) return <div className="text-center  text-lg">Loading...</div>;
   if (isError) return <div className="text-center mt-10 text-red-600">Something went wrong!</div>;
 
   return (
-    <div className="md:flex items-center justify-center my-6 mx-4 md:mx-0">
-      <div className="bg-white shadow-xl rounded-2xl p-8 md:w-2/3">
-        <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">📚 Add New Book</h2>
+    <div className="md:flex items-center justify-center mb-10 mx-4 md:mx-0">
+      <div className="bg-white shadow-xl rounded-2xl p-8  md:w-2/3">
+        <h2 className="text-2xl font-bold mt-6 text-center text-gray-800">📚 Add New Book</h2>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
 
           {/* Title */}
